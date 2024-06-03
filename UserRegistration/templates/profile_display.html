@@ -1,0 +1,59 @@
+{% extends 'dummy.html' %}
+
+{% block title %}
+<title>Profile Display</title>
+{% endblock %}
+
+{% block head %}
+<!-- Add Bootstrap CDN link here -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block body_block %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card profile-card" id="profile-card">
+                <div class="card-header">
+                    <h1 class="text-center mb-0" style="color: white;">Profile Details By {{UO.username}}</h1>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>Username:</h2>
+                            <p>{{ UO.username }}</p>
+                            <h2>Email:</h2>
+                            <p>{{ UO.email }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h2>Address:</h2>
+                            <p>{{ PO.address }}</p>
+                            <h2>Image:</h2>
+                            <img src="{{ PO.profile_pic.url }}" alt="" class="img-fluid rounded" id="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .profile-card:hover {
+        transform: scale(1.05);
+        /* Increase scale on hover */
+        transition: transform 0.3s ease-in-out;
+        position: relative;
+        z-index: 2;
+    }
+
+    #profile-image:hover {
+        cursor: pointer;
+        /* Change cursor to pointer on image hover */
+    }
+
+    .card-header {
+        background-color: #020202;
+    }
+</style>
+{% endblock %}

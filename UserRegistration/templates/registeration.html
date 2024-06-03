@@ -1,0 +1,91 @@
+{% extends 'dummy.html' %}
+
+{% block title %}
+<title>Registration</title>
+{% endblock %}
+
+{% block body_block %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg p-4">
+                <h1 class="text-center mb-4 text-primary"><u>User Registration Form</u></h1>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="username" class="label">Username</label>
+                        {{ ufo.username }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="label">Email address</label>
+                        {{ ufo.email }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="label">Password</label>
+                        {{ ufo.password }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="label">Address</label>
+                        {{ pfo.address }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile_pic" class="label">Profile Image</label>
+                        {{ pfo.profile_pic }}
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .label {
+        display: block;
+        margin-bottom: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 60%;
+        /* Decreased width to 80% */
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        background-color: #f7f8fa;
+        color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
+
+{% endblock %}
